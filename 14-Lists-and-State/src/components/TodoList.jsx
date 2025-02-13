@@ -28,6 +28,7 @@ export default function TodoList() {
 
   return (
     <>
+      <h1>ToDo List</h1>
       {tasks.length > 0 ? (
         <ul>
           {tasks.map((task, index) => (
