@@ -10,9 +10,8 @@ export default function Container({ title, children }) {
   return (
     <div className="container">
       <div>
-        {title}{" "}
         <button type="button" onClick={handleToggleCollapse}>
-          Toggle
+          {title}
         </button>
       </div>
       <div className={!collapsed ? "content" : "content-hidden"}>

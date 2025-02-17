@@ -1,3 +1,8 @@
+button {
+  border: none;
+  background: none;
+}
+
 .container {
   border: 1px solid red;
   display: flex;
