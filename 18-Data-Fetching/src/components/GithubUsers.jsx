@@ -5,8 +5,8 @@ export default function GithubUsers() {
   const [users, setUsers] = useState([]);
   const [inputValue, setInputValue] = useState("");
 
-  function hanldeSeach() {
-    if (inputValue.trim() !== "") {
+  function hanldeSearch() {
+    if (inputValue.trim() !== "" && !users.includes(inputValue.trim())) {
       setUsers([...users, inputValue.trim()]);
     }
   }
@@ -16,9 +16,9 @@ export default function GithubUsers() {
       <input
         type="text"
         value={inputValue}
-        onChange={(value) => setInputValue(value.target.value)}
+        onChange={(e) => setInputValue(e.target.value)}
       />
-      <button type="button" onClick={hanldeSeach}>
+      <button type="button" onClick={hanldeSearch}>
         search
       </button>
 

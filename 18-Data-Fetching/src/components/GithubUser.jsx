@@ -11,11 +11,15 @@ export default function GithubUser({ username }) {
       const response = await fetch(`https://api.github.com/users/${username}`);
       const data = await response.json();
 
+      if (!response.ok) {
+        throw new Error(`User not found (HTTP ${response.status})`);
+      }
+
       console.log(data);
       setUser(data);
     } catch (error) {
       setError(error);
-      console.log(`errore: ${error}`);
+      console.log(error);
       setUser(null);
     } finally {
       setLoading(false);
@@ -31,7 +35,7 @@ export default function GithubUser({ username }) {
   }
 
   if (error) {
-    return <div>An Error occurrend: {error}</div>;
+    return <div>An Error occurrend: {error.message}</div>;
   }
 
   if (user) {
