@@ -8,6 +8,7 @@ export default function GithubUsers() {
   function hanldeSearch() {
     if (inputValue.trim() !== "" && !users.includes(inputValue.trim())) {
       setUsers([...users, inputValue.trim()]);
+      setInputValue("");
     }
   }
 
@@ -22,7 +23,7 @@ export default function GithubUsers() {
         search
       </button>
 
-      {users.length > 0 ? (
+      {users.length ? (
         <ul>
           {users.map((user, index) => (
             <li key={index}>

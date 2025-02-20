@@ -2,13 +2,20 @@ import { useState } from "react";
 import "./App.css";
 import Hello from "./components/Hello";
 import { LanguageContext } from "./components/LanguageContext";
+import { useEffect } from "react";
 
 function App() {
-  const [language, setLanguage] = useState("en");
+  const [language, setLanguage] = useState(
+    localStorage.getItem("language") || "en"
+  );
 
   function handleSetLanguage(language) {
     setLanguage(language.target.value);
   }
+
+  useEffect(() => {
+    localStorage.setItem("language", language);
+  }, [language]);
 
   return (
     <>
