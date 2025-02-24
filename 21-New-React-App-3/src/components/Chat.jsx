@@ -14,7 +14,7 @@ export default function Chat() {
 
   useEffect(() => {
     inputText.current.focus();
-    lastMessage.current?.scrollIntoView({ behavior: "smooth" });
+    lastMessage.current.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
   const sendMessage = (e) => {
